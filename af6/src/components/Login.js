@@ -23,7 +23,7 @@ const Login = (props) => {
         console.log("res:", res);
         //res.data.payload gives us token
         localStorage.setItem("token", res.data.payload);
-        //   props.history.push('/protected/bubbles')
+        //   props.history.push('/protected/')
       })
       .catch((err) => {
         console.log({ "err:": err.response.data });
