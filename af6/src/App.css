@@ -1,0 +1,25 @@
+h1 {
+  text-align: center;
+  height: 80px;
+  background: black;
+  color: #fff;
+  font-weight: bold;
+  line-height: 80px;
+}
+body {
+  background-image: url("https://thumbs.dreamstime.com/z/sport-fitness-lifestyle-people-concept-smiling-men-women-stretching-gym-sport-fitness-lifestyle-people-concept-147152548.jpg");
+  background-attachment: fixed;
+}
+
+.form-group {
+  width: 40%;
+  margin: auto;
+}
+
+p {
+  color: white;
+}
+
+#role-dropdown {
+  padding-right: 2em;
+}

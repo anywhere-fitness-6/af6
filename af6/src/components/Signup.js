@@ -9,9 +9,16 @@ const initialFormValues = {
   role: "",
 };
 
+const initialFormErrors = {
+  firstname: "",
+  lastname: "",
+  email: "",
+  role: "",
+};
+
 const SignUp = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [error, setError] = useState("");
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -28,11 +35,20 @@ const SignUp = () => {
       })
       .catch((err) => {
         console.log({ "err:": err.response.data });
+        handleErrors();
       });
   };
 
+  const handleErrors = () => {
+    if (
+      formValues.username !== "eve.holt@reqres.in" ||
+      formValues.password !== "pistol"
+    )
+      setFormErrors("Username or Password not valid");
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="text-center" onSubmit={handleSubmit}>
       <h1>Sign up for Anywhere Fitness!</h1>
 
       <div className="form-group">
@@ -82,15 +98,10 @@ const SignUp = () => {
           placeholder="Enter password..."
         />
       </div>
-
+      <br />
       <div>
-        <label>
-          <select
-            id="role-dropdown"
-            name="role"
-            value={formValues.role}
-            onChange={handleChange}
-          >
+        <label id="role-dropdown">
+          <select name="role" value={formValues.role} onChange={handleChange}>
             <option>--Select a Role--</option>
             <option value="client">Client</option>
             <option value="instructor">Instructor</option>
@@ -102,7 +113,7 @@ const SignUp = () => {
         </label>
       </div>
 
-      <button type="submit" className="btn btn-dark btn-lg btn-block">
+      <button type="submit" className="btn btn-dark btn-block">
         Register
       </button>
       <p className="forgot-password text-right">
