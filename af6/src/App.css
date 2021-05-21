@@ -1,23 +1,23 @@
 h1 {
   text-align: center;
-  height: 80px;
+  height: 1.7em;
   background: black;
   color: #fff;
   font-weight: bold;
-  line-height: 80px;
+  line-height: 1.5em;
 }
 body {
-  background-image: url("https://thumbs.dreamstime.com/z/sport-fitness-lifestyle-people-concept-smiling-men-women-stretching-gym-sport-fitness-lifestyle-people-concept-147152548.jpg");
+  background-image: url("https://image.freepik.com/free-photo/blurred-background-rows-black-dumbbells-rack-gym_42687-402.jpg");
+  background-size: contain;
   background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
 }
 
 .form-group {
-  width: 40%;
+  width: 19em;
   margin: auto;
-}
-
-p {
-  color: white;
 }
 
 #role-dropdown {
