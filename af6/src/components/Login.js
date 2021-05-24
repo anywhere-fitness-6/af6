@@ -7,10 +7,31 @@
 
 //                 <h3>Log in</h3>
 
+
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/api/login", formValues)
+      .then((res) => {
+        console.log("res:", res);
+        //res.data.payload gives us token
+        localStorage.setItem("token", res.data.payload);
+        //   props.history.push('/protected/')
+      })
+      .catch((err) => {
+        console.log({ "err:": err.response.data });
+        handleErrors();
+      });
+  };
+
 //                 <div className="form-group">
 //                     <label>Email</label>
 //                     <input type="email" className="form-control" placeholder="Enter email" />
 //                 </div>
+
 
 //                 <div className="form-group">
 //                     <label>Password</label>
