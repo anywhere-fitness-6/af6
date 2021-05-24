@@ -1,16 +1,12 @@
-import React, { useState } from "react";
-import axiosWithAuth from "../helpers/axiosWithAuth";
+// import React, { Component } from "react";
 
-const initialFormValues = {
-  username: "",
-  number: "",
-  password: "",
-};
+// export default class Login extends Component {
+//     render() {
+//         return (
+//             <form>
 
-const Login = (props) => {
-  const [formValues, setFormValues] = useState(initialFormValues);
-  const [error, setError] = useState("");
-  console.log(formValues);
+//                 <h3>Log in</h3>
+
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -31,42 +27,29 @@ const Login = (props) => {
       });
   };
 
-  const handleErrors = () => {
-    if (
-      formValues.username !== "eve.holt@reqres.in" ||
-      formValues.password !== "cityslicka"
-    )
-      setError("Username or Password not valid");
-  };
-  return (
-    <div>
-      <h1>Welcome to the Anywhere Fitness!</h1>
-      <div className="login-form"></div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={formValues.username}
-          onChange={handleChange}
-          id="current-username"
-          placeholder="Username..."
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={formValues.password}
-          onChange={handleChange}
-          id="current-password"
-          placeholder="Password..."
-        />
-        <button>Enter!</button>
-      </form>
+//                 <div className="form-group">
+//                     <label>Email</label>
+//                     <input type="email" className="form-control" placeholder="Enter email" />
+//                 </div>
 
-      <p className="error">{error}</p>
-    </div>
-  );
-};
 
-export default Login;
+//                 <div className="form-group">
+//                     <label>Password</label>
+//                     <input type="password" className="form-control" placeholder="Enter password" />
+//                 </div>
+
+//                 <div className="form-group">
+//                     <div className="custom-control custom-checkbox">
+//                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
+//                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+//                     </div>
+//                 </div>
+
+//                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
+//                 <p className="forgot-password text-right">
+//                     Forgot <a href="#">password?</a>
+//                 </p>
+//             </form>
+//         );
+//     }
+// }
