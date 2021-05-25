@@ -29,7 +29,7 @@ const NavBar = ({ loggedIn, logout, role }) => {
           )}
           {role === 'client' && (
             <Link to='/user'>
-              <p>My Classes</p>
+              <p>Your Classes & Add More</p>
             </Link>
           )}
           {!loggedIn && (

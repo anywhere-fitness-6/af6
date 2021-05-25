@@ -26,7 +26,7 @@ const Class = ({ item, addUserToClass, id, role }) => {
 
       <div className='separate'>
         <h3>Instructor Name:</h3>
-        <p>{item.instructor_name}</p>
+        <p>{item.instructor_username}</p>
       </div>
 
       <hr />

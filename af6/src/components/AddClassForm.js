@@ -32,7 +32,7 @@ const defaultErrors = {
 
 function AddClassForm(props) {
   const [formValues, setFormValues] = useState(initialValues);
-  // const [classes, setClasses] = useState([])
+  // const [classes, setClasses] = useState([]);
   const [errors, setErrors] = useState(defaultErrors);
   const [buttonDisabled, setButtonDisabled] = useState(true);
 
@@ -59,16 +59,6 @@ function AddClassForm(props) {
   };
 
   const postNewClass = (newClass) => {
-    // axios
-    //   .post('https://reqres.in/api/users', newClass)
-    //   .then((res) => {
-    //     setClasses([res.data, ...classes])
-    //     setFormValues(initialValues)
-    //   })
-    //   .catch((err) => {
-    //     console.error(err)
-    //     debugger
-    //   })
     props.postClass(newClass);
   };
 
@@ -106,7 +96,7 @@ function AddClassForm(props) {
         <div>{errors.max_size}</div>
       </StyledErr>
       <StyledForm>
-        <label htmlFor='name'>
+        <label>
           Name
           <input
             type='text'
@@ -126,7 +116,7 @@ function AddClassForm(props) {
             placeholder="Instructor Name"
           />
         </label> */}
-        <label htmlFor='type'>
+        <label>
           Class Type
           <input
             type='text'
@@ -136,7 +126,7 @@ function AddClassForm(props) {
             placeholder='Class type'
           />
         </label>
-        <label htmlFor='start_time'>
+        <label>
           Time
           <input
             type='text'
@@ -146,7 +136,7 @@ function AddClassForm(props) {
             placeholder='AM/PM'
           />
         </label>
-        <label htmlFor='date'>
+        <label>
           Date
           <input
             type='date'

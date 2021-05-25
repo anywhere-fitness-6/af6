@@ -7,14 +7,13 @@ import { connect } from 'react-redux';
 
 const Home = (props) => {
   const { push } = useHistory();
-  console.log('am i logged in: ', props.loggedIn);
+  // console.log('am i logged in: ', props.loggedIn);
   useEffect(() => {
     if (props.role === 'client') {
       push('/user');
     } else if (props.role === 'instructor') {
       push('/instructor');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.role]);
 
   if (props.isLoggedIn) {
@@ -26,12 +25,10 @@ const Home = (props) => {
       <section>
         <p>Welcome to Anywhere Fitness!</p>
         <p>
-          We are the premier app for connecting fitness entrepreneurs, and
-          people tired of mainstream gym/exercise locales.
+          We are the best app for connecting fitness trainers and people needing
+          training.
         </p>
-        <p>
-          Signing up is free. Sign up now to see how we can change your life!
-        </p>
+        <p>Sign up now to see how we can change your life!</p>
       </section>
       <Route exact path='/'>
         <LoginForm />
