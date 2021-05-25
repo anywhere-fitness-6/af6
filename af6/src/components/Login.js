@@ -1,34 +1,56 @@
-// import React, { Component } from "react";
+import React, { useState } from "react";
+import "./Login.styles.scss";
 
-// export default class Login extends Component {
-//     render() {
-//         return (
-//             <form>
+const Login = () => {
+  const [formValues, setFormValues] = useState({
+    username: "",
+    password: "",
+  });
 
-//                 <h3>Log in</h3>
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+  
+  return (
+    <div className="login" >
+      <div className="login__header">Login</div>
+      <div className="login__contents">
+        <div className="img">
+          <img
+            src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=968&q=80"
+            alt=""
+          />
+        </div>
+        <div className="login__form">
+          <div className="login__formGroup">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formValues.username}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="login__formGroup">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="login__footer">
+        <button type="button" id="btn">
+          Login
+        </button>
+      </div>
+    </div>
+  );
+};
 
-//                 <div className="form-group">
-//                     <label>Email</label>
-//                     <input type="email" className="form-control" placeholder="Enter email" />
-//                 </div>
-
-//                 <div className="form-group">
-//                     <label>Password</label>
-//                     <input type="password" className="form-control" placeholder="Enter password" />
-//                 </div>
-
-//                 <div className="form-group">
-//                     <div className="custom-control custom-checkbox">
-//                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
-//                         <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-//                     </div>
-//                 </div>
-
-//                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-//                 <p className="forgot-password text-right">
-//                     Forgot <a href="#">password?</a>
-//                 </p>
-//             </form>
-//         );
-//     }
-// }
+export default Login;
