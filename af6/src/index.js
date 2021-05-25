@@ -1,18 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
-import { applyMiddleware, createStore } from "redux";
-import { logger } from "redux-logger";
-import { Provider } from "react-redux";
-import { reducer } from "../src/store/reducers";
-import thunk from "redux-thunk";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+// import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from './reducers/index';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import { Provider } from 'react-redux';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
-const store = createStore(reducer, applyMiddleware(logger, thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
-
   <React.StrictMode>
     <Provider store={store}>
       <Router>
@@ -20,11 +21,11 @@ ReactDOM.render(
       </Router>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
-
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-
+  document.getElementById('root')
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))21
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+// uncomment the import and the line below if you want to use WebVitals
+// reportWebVitals();

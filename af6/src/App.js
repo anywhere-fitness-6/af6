@@ -1,15 +1,27 @@
 import React from 'react';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-// import Login from "./components/Login";
-import SignUp from "./components/Signup";
+import { PrivateRoute } from './helpers/PrivateRoute';
+import NavigationBar from './components/NavBar';
+import AboutUs from './components/AboutUs';
+import Home from './components/Home';
+import User from './components/User';
+import Instructor from './components/Instructor';
 
-function App() {
+function App(props) {
   return (
-    <SignUp/>
+    <div className='App'>
+      <NavigationBar />
+      <Switch>
+        <PrivateRoute path='/instructor' component={Instructor} />
+        <PrivateRoute path='/user' component={User} />
+        <Route path='/about' component={AboutUs} />
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
 export default App;
-
