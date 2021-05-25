@@ -19,6 +19,8 @@ h3 {
   font-size: 1.4rem;
   /* background-color: #468c98; */
   background-color: yellow;
+  opacity: 0.75;
+
   /* border-bottom: 2px solid #fd5549; */
   border-bottom: 30px solid black;
 }
