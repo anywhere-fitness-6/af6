@@ -12,7 +12,6 @@ import thunk from "redux-thunk";
 const store = createStore(reducer, applyMiddleware(logger, thunk));
 
 ReactDOM.render(
-
   <React.StrictMode>
     <Provider store={store}>
       <Router>
@@ -21,10 +20,4 @@ ReactDOM.render(
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
-
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-
 );
