@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import axiosWithAuth from "../helpers/axiosWithAuth";
 
 const initialFormValues = {
-  username: "",
+  firstname: "",
+  lastname: "",
+  email: "",
   password: "",
+  role: "",
 };
 
-const Signup = (props) => {
+const SignUp = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
-  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
@@ -25,46 +27,82 @@ const Signup = (props) => {
       })
       .catch((err) => {
         console.log({ "err:": err.response.data });
-        handleErrors();
       });
   };
 
-  const handleErrors = () => {
-    if (
-      formValues.username !== "eve.holt@reqres.in" ||
-      formValues.password !== "pistol"
-    )
-      setError("Username or Password not valid");
-  };
   return (
-    <div>
+    <form className="text-center" onSubmit={handleSubmit}>
       <h1>Sign up for Anywhere Fitness!</h1>
-      <div className="login-form"></div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+
+      <div className="form-group">
+        <label htmlFor="first name">First Name</label>
         <input
           type="text"
-          name="username"
-          value={formValues.username}
+          name="firstname"
+          className="form-control"
+          value={formValues.firstname}
           onChange={handleChange}
-          id="username"
-          placeholder="Username..."
+          placeholder="First Name..."
         />
-        <label htmlFor="password">Password:</label>
+      </div>
+
+      <div className="form-group">
+        <label>Last Name</label>
         <input
-          type="password"
+          name="lastname"
+          value={formValues.lastname}
+          onChange={handleChange}
+          type="text"
+          className="form-control"
+          placeholder="Last name..."
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Email</label>
+        <input
+          name="email"
+          value={formValues.email}
+          onChange={handleChange}
+          type="email"
+          className="form-control"
+          placeholder="Enter email..."
+        />
+      </div>
+
+      <div className="form-group">
+        <label>Password</label>
+        <input
           name="password"
           value={formValues.password}
           onChange={handleChange}
-          id="password"
-          placeholder="Password..."
+          type="password"
+          className="form-control"
+          placeholder="Enter password..."
         />
-        <button>Enter!</button>
-      </form>
-
-      <p className="error">{error}</p>
-    </div>
+      </div>
+      <br />
+      <div>
+        <label id="role-dropdown">
+          <select name="role" value={formValues.role} onChange={handleChange}>
+            <option value="client">Client</option>
+            <option value="instructor">Instructor</option>
+          </select>
+        </label>
+        <label>
+          Auth Code:
+          <input type="text" name="authcode" placeholder="Instructor Only..." />
+        </label>
+      </div>
+      <br />
+      <button type="submit" className="btn btn-dark btn-block">
+        Register
+      </button>
+      <p className="forgot-password text-right">
+        Already registered <a href="#">Log In?</a>
+      </p>
+    </form>
   );
 };
 
-export default Signup;
+export default SignUp;
