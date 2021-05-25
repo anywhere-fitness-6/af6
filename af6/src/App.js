@@ -1,12 +1,15 @@
+import React from "react";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+// import { Switch, Route, Link } from "react-router-dom";
+// import Login from "./components/Login";
+import SignUp from "./components/Signup";
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-      <Signup />
+    <div className="app">
+      <SignUp />
+      {/* <Login /> */}
     </div>
   );
 }
