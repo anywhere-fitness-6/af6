@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Login.styles.scss";
+import axiosWithAuth from "../helpers/axiosWithAuth";
+
 
 const Login = () => {
   const [formValues, setFormValues] = useState({
@@ -9,6 +11,21 @@ const Login = () => {
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("/api/login", formValues)
+      .then((res) => {
+        console.log("res:", res);
+        //res.data.payload gives us token
+        localStorage.setItem("token", res.data.payload);
+        //   props.history.push('/protected/')
+      })
+      .catch((err) => {
+        console.log({ "err:": err.response.data });
+      });
   };
   
   return (
@@ -45,7 +62,7 @@ const Login = () => {
         </div>
       </div>
       <div className="login__footer">
-        <button type="button" id="btn">
+        <button type="button" id="btn" onClick={handleSubmit} >
           Login
         </button>
       </div>

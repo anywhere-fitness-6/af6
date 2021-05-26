@@ -28,7 +28,6 @@ const Register = () => {
       .catch((err) => {
         console.log({ "err:": err.response.data });
       });
-
   };
 
   return (
@@ -53,12 +52,12 @@ const Register = () => {
             />
           </div>
           <div className="register__formGroup">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">E-mail</label>
             <input
               type="email"
               name="email"
               placeholder="Email Address"
-              value={formValues.mail}
+              value={formValues.email}
               onChange={handleChange}
             />
           </div>
@@ -83,7 +82,7 @@ const Register = () => {
             />
           </div>
           <div className="register__formGroup">
-            <input placeholder="Auth Code (Instructor Only)" />
+            <input type="text" placeholder="Auth Code (Instructor Only)" />
             <label id="role-dropdown">
               <select
                 name="role"
@@ -98,11 +97,7 @@ const Register = () => {
         </div>
       </div>
       <div className="register__footer">
-        <Button
-          type="button"
-          id="btn"
-          onClick={handleSubmit}
-        >
+        <Button type="button" id="btn" onClick={handleSubmit}>
           Register
         </Button>
       </div>
