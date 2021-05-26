@@ -29,11 +29,7 @@ const UserSavedClasses = ({
           return (
             <div className='saved-class' key={sClass.class_id}>
               <p>{sClass.name}</p>
-              <button
-                className='remove-from-saved-classes'
-                onClick={handleDeleteClick}
-                className='delete-button'
-              >
+              <button className='delete-button' onClick={handleDeleteClick}>
                 Delete Class
               </button>
             </div>
