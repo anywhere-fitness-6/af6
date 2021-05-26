@@ -47,7 +47,7 @@ function UpdateClassForm(props) {
         console.log('in update: ', res.data);
       })
       .catch((err) => console.log('error getting class info: ', err));
-  }, []);
+  }, [classid]);
 
   console.log('these are the values: ', formValues);
   const validate = (inputName, inputValue) => {
