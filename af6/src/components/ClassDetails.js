@@ -27,7 +27,7 @@ const Class = ({
         console.log('in ue: ', res);
       })
       .catch((err) => console.log('error getting class info: ', err));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

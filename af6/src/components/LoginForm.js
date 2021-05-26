@@ -27,7 +27,7 @@ function LoginForm(props) {
     } else if (props.role === 'instructor') {
       props.push('/instructor');
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, [props.role]);
 
   const validate = (inputName, inputValue) => {
